@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   // state for controlled input fields
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [navigate]= useHistory();
+  const navigate = useNavigate();
 
   // to make routes private
   useEffect(() => {
@@ -20,7 +20,7 @@ const Signup = () => {
     e.preventDefault()
     let item = { username, email, password };
     console.warn(item);
-    let result = await fetch("http://localhost:4000/users", {
+    let result = await fetch("http://localhost:3000/users", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Item() {
   const { id } = useParams();
@@ -8,7 +8,7 @@ function Item() {
   const [supplier, setSupplier] = useState([]);
   const [review, setReview] = useState([]);
   const [userReview, setUserReview] = useState([]);
-  const navigate = useHistory()
+  const navigate = useNavigate()
 
   // post item
   const handleClick = (item) => {
@@ -19,7 +19,7 @@ function Item() {
     const image_url = item.image_url;
 
     axios
-      .post(" http://localhost:4000/carts", {
+      .post("http://localhost:3000/carts", {
         title,
         description,
         price,
@@ -35,7 +35,7 @@ function Item() {
   };
 
   useEffect(() => {
-    fetch(` http://localhost:4000/products/${id}`)
+    fetch(`http://localhost:3000/products/${id}`)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
@@ -50,7 +50,7 @@ function Item() {
 
   // supplier information by id
   useEffect(() => {
-    fetch(` http://localhost:4000/suppliers/${id}`)
+    fetch(`http://localhost:3000/suppliers/${id}`)
       .then((response) => response.json())
       .then((response) => {
         setSupplier(response);
@@ -59,7 +59,7 @@ function Item() {
 
   // reviews by users
   useEffect(() => {
-    fetch(` http://localhost:4000/users/${id}`)
+    fetch(`http://localhost:3000/users/${id}`)
       .then((response) => response.json())
       .then((response) => {
         // console.log(response);
