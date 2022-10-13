@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 function Item() {
   const { id } = useParams();
@@ -8,7 +8,7 @@ function Item() {
   const [supplier, setSupplier] = useState([]);
   const [review, setReview] = useState([]);
   const [userReview, setUserReview] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useHistory()
 
   // post item
   const handleClick = (item) => {

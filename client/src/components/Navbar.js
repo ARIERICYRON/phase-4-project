@@ -1,10 +1,11 @@
 import React from "react";
 import { FaCartArrowDown } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Signup from "./Signup"
 import Item from "./Item";
+
 function Navbar() {
-  const navigate = useNavigate();
+  const navigate = useHistory();
   // logout redirect
   const logout = () => {
     localStorage.clear();
