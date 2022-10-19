@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
     def index 
         carts = Cart.all
-        render json: carts
+        render json: carts, Serializer: CartSerializer
     end
 
     def create
@@ -12,6 +12,15 @@ class CartsController < ApplicationController
             price: params[:price]
         )
         render json: cart, status: :created
+    end
+
+    def show
+        cart = Cart.find_by(id: params[:id])
+        if cart
+            render json: product
+        else
+            render json: { error: "product not found"}, status: :not_found
+        end
     end
 
     def destroy

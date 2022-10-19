@@ -1,8 +1,8 @@
 import React from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import Signup from "./Signup";
-import Item from "./Item";
+
+
 function Navbar() {
   const navigate = useNavigate();
   // logout redirect

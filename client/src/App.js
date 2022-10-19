@@ -8,7 +8,6 @@ import Items from "./components/Items";
 import Item from "./components/Item";
 import Cart from "./components/Cart";
 import Signup from "./components/Signup";
-
 function App() {
   return (
     <div className="root">

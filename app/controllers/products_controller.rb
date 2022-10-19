@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
         if product
             render json: product
         else
-            render json: { error: "Bird not found"}, status: :not_found
+            render json: { error: "product not found"}, status: :not_found
         end
     end
 

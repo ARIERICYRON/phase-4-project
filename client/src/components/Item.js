@@ -10,6 +10,7 @@ function Item() {
   const [userReview, setUserReview] = useState([]);
   const navigate = useNavigate()
 
+
   // post item
   const handleClick = (item) => {
     console.log(item);
@@ -19,7 +20,7 @@ function Item() {
     const image_url = item.image_url;
 
     axios
-      .post("http://localhost:3000/carts", {
+      .post(`http://localhost:3000/carts`, {
         title,
         description,
         price,
@@ -35,10 +36,11 @@ function Item() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`http://127.0.0.1:3000/products/${id}`,
+    )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
+       
         // returns the product and its properties
         setItem(response);
         // returns the reviews for the product
@@ -50,7 +52,7 @@ function Item() {
 
   // supplier information by id
   useEffect(() => {
-    fetch(`http://localhost:3000/suppliers/${id}`)
+    fetch(`/suppliers/${id}`)
       .then((response) => response.json())
       .then((response) => {
         setSupplier(response);
@@ -59,7 +61,7 @@ function Item() {
 
   // reviews by users
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${id}`)
+    fetch(`/users/${id}`)
       .then((response) => response.json())
       .then((response) => {
         // console.log(response);

@@ -1,7 +1,16 @@
 class UsersController < ApplicationController
     def index
         users = User.all
-        render json: users
+        render json: users, Serializer: UserSerializer
+    end
+
+    def create
+        users = User.create(
+            username: params[:username],
+            email: params[:email],
+            password: params[:password],
+            )
+        render json: product, status: :created
     end
 
     def show
@@ -13,12 +22,5 @@ class UsersController < ApplicationController
         end
     end
 
-    def create
-        user = User.create(
-            username: params[:username],
-            email: params[:email],
-            password: params[:password]
-        )
-        render json: user, status: :created
-    end
+  
 end

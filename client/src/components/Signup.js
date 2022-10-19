@@ -11,8 +11,10 @@ const Signup = () => {
   // to make routes private
   useEffect(() => {
     if(localStorage.getItem('user-info')){
+      // eslint-disable-next-line 
         navigate("/")
     }
+    // eslint-disable-next-line 
   }, [])
 
   // handle signup button
@@ -20,7 +22,7 @@ const Signup = () => {
     e.preventDefault()
     let item = { username, email, password };
     console.warn(item);
-    let result = await fetch("http://localhost:3000/users", {
+    let result = await fetch("/users", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {

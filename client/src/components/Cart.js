@@ -9,7 +9,7 @@ function Cart() {
 
   // delete item from cart
   async function handleDelete(id) {
-    let result = await fetch(`http://localhost:3000/carts/${id}`, {
+    let result = await fetch(`/carts/${id}`, {
       method: "DELETE",
     });
     result = await result.json();
@@ -18,7 +18,7 @@ function Cart() {
   }
 
   async function getCartItems() {
-    let result = await fetch("http://localhost:3000/carts");
+    let result = await fetch("/carts");
     result = await result.json();
     setItems(result);
   }

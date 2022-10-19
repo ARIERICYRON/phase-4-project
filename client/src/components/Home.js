@@ -4,7 +4,7 @@ import Items from "./Items";
 function Home() {
   const [items, setItems] = useState([]);
   const [searchItems, setSearchItems] = useState([]);
-  const url = "http://127.0.0.1:3000/products";
+  const url = "products";
 
   useEffect(() => {
     fetch(url)
